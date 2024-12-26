@@ -1,14 +1,13 @@
 using System;
-using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PriceTag : MonoBehaviour
 {
     public float askedPrice = 100f;
     public float realPrice = 110f;
     public float changeRate = 1f;
-
 
     private float outlineWidth = 0f;
     private Material textMaterial;
@@ -17,6 +16,8 @@ public class PriceTag : MonoBehaviour
     private float displayRealPrice;
     private TextMeshPro text;
     private bool pressed = false;
+    private bool canBePressed = false;
+    private LevelManager levelManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +27,7 @@ public class PriceTag : MonoBehaviour
         displayPrice = askedPrice;
         displayRealPrice = realPrice;
         UpdateDisplay();
+        levelManager = GameObject.FindWithTag("MainCamera").GetComponent<LevelManager>();
     }
 
     // Update is called once per frame
@@ -65,8 +67,13 @@ public class PriceTag : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (!canBePressed) {
+            return;
+        }
         pressed = true;
         UpdateDisplay();
+
+        Invoke("ReturnToMenu", 2);
     }
 
     public void UpdateDisplay()
@@ -81,6 +88,7 @@ public class PriceTag : MonoBehaviour
 
     public void ChangeRealPrice(float delta)
     {
+        canBePressed = true;
         if (pressed) {
             return;
         }
@@ -95,12 +103,12 @@ public class PriceTag : MonoBehaviour
         askedPrice += delta;
     }
 
-    public float Profit()
+    public void ReturnToMenu()
     {
-        return realPrice - askedPrice;
+        levelManager.ReturnToMenu(realPrice - askedPrice);
     }
 
-    static String FormatPrice(float price) {
+    static string FormatPrice(float price) {
         return Mathf.RoundToInt(price).ToString() + "$";
     }
 }
