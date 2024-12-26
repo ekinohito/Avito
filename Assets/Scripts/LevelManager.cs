@@ -15,6 +15,9 @@ public class LevelManager : MonoBehaviour
         if (newLevel > progress) {
             return;
         }
+        if (newLevel == progress) {
+            progress += 1;
+        }
         if (currentInstance != null) {
             Destroy(currentInstance);
         }
