@@ -941,6 +941,10 @@ PrefabInstance:
       propertyPath: askedPrice
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1010060428955585484, guid: 2eaccf30a4423e543bcbd748ea59854c, type: 3}
+      propertyPath: changeRate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1808917961782951996, guid: 2eaccf30a4423e543bcbd748ea59854c, type: 3}
       propertyPath: m_Name
       value: Level2
