@@ -249,8 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priceTag: {fileID: 4272458648360759458}
-  realPrice: 10
-  askedPrice: 100
+  realPrice: -10
+  askedPrice: -30
 --- !u!114 &1369478404049110634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,6 +937,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1010060428955585484, guid: 2eaccf30a4423e543bcbd748ea59854c, type: 3}
+      propertyPath: askedPrice
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 1808917961782951996, guid: 2eaccf30a4423e543bcbd748ea59854c, type: 3}
       propertyPath: m_Name
       value: Level2
@@ -948,6 +952,14 @@ PrefabInstance:
     - target: {fileID: 2263385000983992507, guid: 2eaccf30a4423e543bcbd748ea59854c, type: 3}
       propertyPath: m_text
       value: Pattern is fake
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554176051071694922, guid: 2eaccf30a4423e543bcbd748ea59854c, type: 3}
+      propertyPath: realPrice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554176051071694922, guid: 2eaccf30a4423e543bcbd748ea59854c, type: 3}
+      propertyPath: askedPrice
+      value: -75
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8583976894651092031, guid: 2eaccf30a4423e543bcbd748ea59854c, type: 3}

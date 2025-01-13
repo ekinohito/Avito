@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     public GameObject levelInstancePoint;
     public GameObject animatedCamera;
 
+    public GameObject levelSelect;
+
     private GameObject currentInstance;
 
     public void SelectLevel(int newLevel)
@@ -22,12 +24,14 @@ public class LevelManager : MonoBehaviour
             Destroy(currentInstance);
         }
         currentInstance = Instantiate(levels[newLevel], levelInstancePoint.GetComponent<Transform>());
-        Debug.Log(animatedCamera.GetComponent<Animation>().Play("CameraToLevel"));
+        levelSelect.SetActive(false);
+        animatedCamera.GetComponent<Animation>().Play("CameraToLevel");
     }
 
     public void ReturnToMenu(float moneyDelta)
     {
         money += moneyDelta;
+        levelSelect.SetActive(true);
         animatedCamera.GetComponent<Animation>().Play("LevelToCamera");
     }
 }
